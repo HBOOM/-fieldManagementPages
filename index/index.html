@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Nested Panel - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../index/Script/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../index/Script/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../index/Script/demo/demo.css">
+	<script type="text/javascript" src="../index/Script/jquery.min.js"></script>
+	<script type="text/javascript" src="../index/Script/jquery.easyui.min.js"></script>
+</head>
+<style>
+.header{
+	display: -webkit-flex;
+	display: flex;
+	justify-content:space-between;
+	/* line-height: 60px; */
+	color:#fff;
+	font-size: 20px;
+	font-weight: bold;
+}
+.header p{
+	text-indent: 5px;
+}
+.header .ul-item{
+  display: -webkit-flex;
+  display: flex;
+  justify-content:flex-end;
+  margin-right: 20px;
+}
+.header .ul-item li{
+	list-style-type: none;
+	padding: 0 5px;
+}
+.header .ul-item img{
+	border-radius: 2px;
+}
+.panel-header{
+	height:45px;
+	text-align: center
+}
+.panel-header .panel-title{
+	line-height: 36px;
+} 
+</style>
+<body>
+	<div class="easyui-layout" style="height:auto;" data-options="fit:true">
+		<div data-options="region:'north'" style="height:60px;overflow: hidden; background: linear-gradient(to top right, #07BEc5 0%, #00ADB3 25%, #01A3A5 100%)" class="header">
+			 <p><label >时间：</labe><label class="time">2019-04-09 15:30:35:00</label></p>
+			 <ul class="ul-item">
+				<li><img src="../user.png">&nbsp;<label >developer1</label></li>
+				<li><label >班组：</label><label >甲班</label></li>
+				<li><label >班次：</label><label >白班</label></li>
+			 </ul>
+		</div>
+        <div data-options="region:'south',split:true" style="height:50px;"></div>
+        <div data-options="region:'east',split:true" title="East" style="width:180px;">
+            <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,dnd:true"></ul>
+        </div>
+        <div data-options="region:'west',split:true" title="操作菜单栏" style="width:15%;">
+            <div class="easyui-accordion" data-options="fit:true,border:false">
+                <div title="机台操作区" style="padding:10px;">
+                    content1
+                </div>
+                <div title="快捷录入区" data-options="selected:true" style="padding:10px;">
+                    content2
+                </div>
+                <div title="信息查询区" style="padding:10px">
+                    content3
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center',title:'Main Title'">
+            <div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+                <!-- <div title="About" data-options="href:'_content.html'" style="padding:10px"></div> -->
+                <div title="DataGrid" style="padding:5px">
+                    <table class="easyui-datagrid"
+                            data-options="url:'datagrid_data1.json',method:'get',singleSelect:true,fit:true,fitColumns:true">
+                        <thead>
+                            <tr>
+                                <th data-options="field:'itemid'" width="80">Item ID</th>
+                                <th data-options="field:'productid'" width="100">Product ID</th>
+                                <th data-options="field:'listprice',align:'right'" width="80">List Price</th>
+                                <th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>
+                                <th data-options="field:'attr1'" width="150">Attribute</th>
+                                <th data-options="field:'status',align:'center'" width="50">Status</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
