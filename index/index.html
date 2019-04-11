@@ -1,195 +1,289 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>MES现场管理首页</title>
-	<link rel="stylesheet" type="text/css" href="../index/Script/themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="../index/Script/themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="../index/Script/demo/demo.css">
-	<script type="text/javascript" src="../index/Script/jquery.min.js"></script>
-	<script type="text/javascript" src="../index/Script/jquery.easyui.min.js"></script>
+    <meta charset="UTF-8">
+    <title>MES现场管理首页</title>
+    <link rel="stylesheet" type="text/css" href="../index/Script/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../index/Script/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../index/Script/demo/demo.css">
+    <script type="text/javascript" src="../index/Script/jquery.min.js"></script>
+    <script type="text/javascript" src="../index/Script/jquery.easyui.min.js"></script>
 </head>
 <style>
-.header{
-	display: -webkit-flex;
-	display: flex;
-	justify-content:space-between;
-	/* line-height: 60px; */
-	color:#fff;
-	font-size: 20px;
-	font-weight: bold;
-}
-.header p{
-	text-indent: 5px;
-}
-.header .ul-item{
-  display: -webkit-flex;
-  display: flex;
-  justify-content:flex-end;
-  margin-right: 20px;
-}
-.header .ul-item li{
-	list-style-type: none;
-	padding: 0 5px;
-}
-.header .ul-item img{
-	border-radius: 2px;
-}
-.panel-header{
-	height:60px;
-	text-align: center
-}
-.panel-header .panel-title{
-	line-height: 45px;
-}
-.panel .layout-panel .layout-panel-center .panel-htop{
-	left:50px;
-} 
-.ul-equip-item p {
-    /*list-style: none;*/
-    border-bottom:1px solid #00ADB3;
-    text-align: center;
-    word-wrap:break-word;/*自动换行*/
-    height: 45px;
-    line-height: 45px;
-    cursor: pointer;
-}
-.border-sty::before{
-    border-color:#00ADB3;
-}
-.border-sty::after{
-    border-color:#00ADB3;
-}
-table tr td{
-    word-wrap:break-word;
-    word-break:break-all;
-}
-#main-center{
-    position: relative;
-}
-.content-area, .btn-item, .content-list{
-    display: flex;
-    display:-webkit-flex;
-}
-.content-area{
-    justify-content: space-around;
-}
+    .header {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+        /* line-height: 60px; */
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+    }
 
-.btn-item{
-    margin-top:5px;
-    width: 20%;
-    flex-wrap: wrap;
-    align-items:flex-start;
-}
-.btn-item a{
-    order: 2;
-}
-.btn-item .l-btn {
-    width:100%;
-    padding: 15px;
-}
-.btn-item .easyui-linkbutton{
-    display: flex;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;
-}
-.content-list{
-    justify-content: flex-start;
-    font-size: 18px;
-}
-.content-list li{
-  list-style-type: none;
-  padding: 10px;
-}
-.state{
-    display: inline-block;
-    border:1px solid green;
-    background: green;
-    border-radius: 50%;
-    width:20px;
-    height: 20px;
-}
+    .header p {
+        text-indent: 5px;
+    }
+
+    .header .ul-item {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 20px;
+    }
+
+    .header .ul-item li {
+        list-style-type: none;
+        padding: 0 5px;
+
+    }
+
+    .header .ul-item img {
+        border-radius: 2px;
+    }
+
+    .panel-header {
+        height: 60px;
+        text-align: center
+    }
+
+    .panel-header .panel-title {
+        line-height: 45px;
+    }
+
+    .panel .layout-panel .layout-panel-center .panel-htop {
+        left: 50px;
+    }
+
+    .ul-equip-item p {
+        /*list-style: none;*/
+        border-bottom: 1px solid #00ADB3;
+        text-align: center;
+        word-wrap: break-word;
+        /*自动换行*/
+        height: 45px;
+        line-height: 45px;
+        cursor: pointer;
+    }
+
+    .border-sty::before {
+        border-color: #00ADB3;
+    }
+
+    .border-sty::after {
+        border-color: #00ADB3;
+    }
+
+    table tr td {
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    #main-center {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .content-area,
+    .btn-item,
+    .content-list {
+        display: flex;
+        display: -webkit-flex;
+    }
+
+    .content-area {
+        justify-content: space-around;
+    }
+
+    .btn-item {
+        margin-top: 5px;
+        width: 20%;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .btn-item a {
+        order: 2;
+    }
+
+    .btn-item .l-btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .btn-item .easyui-linkbutton,
+    #fast-enter .enter-btn .easyui-linkbutton {
+        display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content-list {
+        justify-content: flex-start;
+        font-size: 16px;
+    }
+
+    .content-list li {
+        list-style-type: none;
+        padding: 10px;
+    }
+
+    .state {
+        display: inline-block;
+        border: 1px solid green;
+        background: green;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+    #main-center .panel-tool {
+        display: none;
+    }
+
+    #fast-enter .content-area .panel-header {
+        height: 0;
+    }
+
+    #fast-enter .content-area {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #fast-enter .content-area .remark li,
+    #fast-enter .description li {
+        list-style-type: none;
+    }
+
+    #fast-enter .content-area .remark ul,
+    #fast-enter .description ul {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #fast-enter .content-area .remark span,
+    #fast-enter .description span {
+        display: inline-block;
+        border-radius: 50%;
+        background: green;
+        width: 10px;
+        height: 10px;
+    }
+
+    #fast-enter .enter-btn .easyui-linkbutton {
+        height: 60px;
+        margin-bottom: 2px;
+        background: #E8F1FF;
+    }
+
+    #fast-enter .enter-btn .easyui-linkbutton .l-btn-text {
+        font-size: 20px;
+        letter-spacing: 5px;
+    }
+
+    #fast-enter .handleoversth {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+    }
+
+    #fast-enter .handleoversth .comboxsty,
+    #fast-enter .typesty,
+    #fast-enter .enter-time {
+        padding: 20px 15px;
+    }
+
+    #fast-enter .handleoversth .comboxsty .textbox-label {
+        overflow: visible;
+    }
+
+    #fast-enter .handleoversth .comboxsty input,
+    #fast-enter .typesty input,
+    #fast-enter .enter-time input {
+        height: 36px;
+    }
+
+    #fast-enter .enter-time {
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-around;
+        line-height: 36px;
+    }
 </style>
+
 <body>
-	<div class="easyui-layout" style="height:auto;" data-options="fit:true">
-		<div data-options="region:'north'" style="height:60px;overflow: hidden; background: linear-gradient(to top right, #07BEc5 0%, #00ADB3 25%, #01A3A5 100%)" class="header">
-			 <p><label >时间：</labe><label class="time">2019-04-09 15:30:35:00</label></p>
-			 <ul class="ul-item">
-                <li><label >退出登录</label></li><span>|</span>
-				<li><img src="../user.png">&nbsp;<label >developer1</label></li><span>|</span>
-				<li><label >班组：</label><label >甲班</label></li><span>|</span>
-				<li><label >班次：</label><label >白班</label></li>
-			 </ul>
-		</div>
-        <div data-options="region:'south',split:true" style="height:50px;"></div>
+    <div class="easyui-layout" style="height:auto;" data-options="fit:true">
+        <div data-options="region:'north'"
+            style="height:60px;overflow: hidden; background: linear-gradient(to top right, #07BEc5 0%, #00ADB3 25%, #01A3A5 100%)"
+            class="header">
+            <p><label>时间：</labe><label class="time"></label></p>
+            <ul class="ul-item">
+                <li onclick="exit()"><label>退出登录</label></li><span>|</span>
+                <li onclick="reloadData()"><label>刷新</label></li><span>|</span>
+                <li><img src="../user.png">&nbsp;<label>developer1</label></li><span>|</span>
+                <li><label>班组：</label><label>甲班</label></li><span>|</span>
+                <li><label>班次：</label><label>白班</label></li>
+            </ul>
+        </div>
+        <div data-options="region:'south',split:true" style="height:60px;line-height: 45px;font-weight: bold">
+            <label>本机ip：</label><label>10.161.117.250</label>
+            <label>客户端版本：</label><label>0.1.0.112</label>
+        </div>
         <!-- <div data-options="region:'east',split:true" title="East" style="width:180px;">
             <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,dnd:true"></ul>
         </div> -->
         <div data-options="region:'west',split:true" title="操作菜单栏" style="width:15%;">
             <div class="easyui-accordion" data-options="fit:true,border:false">
-                <div title="机台操作区" style="padding:10px;">
+                <div title="机台操作区" style="padding:10px;" data-options="selected:true">
                     <div class="ul-equip-item">
-                        <p>卷接机002</p>
-                        <p>卷接机002</p>
+                        <p>喂丝机002</p>
+                        <p>喂丝机002</p>
                     </div>
                 </div>
-                <div title="显示机台信息" data-options="selected:true" style="padding:10px;">
-                    content2
-                </div>
                 <div title="信息查询区" style="padding:10px">
-                    content3
+                    <div class="ul-equip-item">
+                        <p onclick="equipCheck()" class="equCheck">机台自检</p>
+                        <p onclick="changePwd()" class="PwdCheck">密码修改</p>
+                    </div>
+                </div>
+                <div title="班次时间查询区" style="padding:10px">
+                    <div class="ul-equip-item">
+                        <p>夜班 00:00~7：30</p>
+                        <p>白班 7:30~15：35</p>
+                        <p>中班 15:35~00：00</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div data-options="region:'center',title:'工单信息区域'" id="main-center">
-                <!--minWidth:'00',
+            <!--minWidth:'00',
                     minHeight:'600'-->
-            <div id="equip-Operate">
-                <div  class="easyui-window" title="机台操作区" style="width:50%;padding:10px;" data-options="
-                iconCls:'icon-save',
+            <div id="equip-Operate" style="width:50%">
+                <!--data-options="
                 inline:true,
-                shadow:true,
+                shadow:false,
                 onResize:function(){
                     $(this).window({left:'0px', top:'0px'});
-                }
-                ">
-                <div id="work-area"  class="easyui-tabs" style="width: 100%;height:inherit">
-                    <div title="20190410001JX3000505" style="padding:0px;display:none;" data-options="iconCls:'icon-reload',fit:true" class="content-area">
-                        <div class="btn-item"> 
-                            <a href="#" class="easyui-linkbutton">启动工单</a>
-                            <a href="#" class="easyui-linkbutton">暂停工单</a>
-                            <a href="#" class="easyui-linkbutton">结束工单</a>
-                            <a href="#" class="easyui-linkbutton">切换机台类型</a>
-                            <a href="#" class="easyui-linkbutton">录入发射量(无工单)</a>
-                            <a href="#" class="easyui-linkbutton">录入发射量(有工单)</a>
-                        </div>
-                        <div class="content-list"> 
-                            <ul>
-                                <li><span>工单号：</span><span>20190410001JX3000505</span></li>
-                                <li><span>牌号：</span><span>100MM加香醋纤滤棒(3000/一切四/24.05)</span></li>
-                                <li><span>牌号编码：</span><span>BC06100033</span></li>
-                                <li><span>计划开始时间：</span><span>2019年04月10日 00时00分</span></li>
-                                <li><span>计划结束时间：</span><span>2019年04月11日 00时00分</span></li>
-                                <li><span>实际开始时间：</span><span>2019年04月11日 00时00分</span></li>
-                                <li><span>实际结束时间：</span><span>2019年04月11日 00时00分</span></li>
-                                <li><span>实际产量(支)：</span><span>2226.4</span></li>
-                                <li><span>计划产量(支)：</span><span>2226.4</span></li>
-                                <li><span>状态：</span><span>运行</span>&nbsp;<span class="state"></span></li>
-                                <li><span>生产类型：</span><span>正常</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div title="20190410001JX3000506" style="padding:0px;display:none;" data-options="iconCls:'icon-reload',fit:true" class="content-area">
-                            <div class="btn-item"> 
-                                <a href="#" class="easyui-linkbutton">启动工单1</a>
-                                <a href="#" class="easyui-linkbutton">暂停工单1</a>
+                }-->
+                <div class="easyui-panel" title="机台操作区" style="width:100%;padding:10px;" data-options="fit:true">
+                    <div id="work-area" class="easyui-tabs" style="width: 100%;height:inherit" data-options="fit:true">
+                        <div title="20190410001JX3000505" style="padding:0px;display:none;"
+                            data-options="iconCls:'icon-reload'" class="content-area">
+                            <div class="btn-item">
+                                <a href="#" class="easyui-linkbutton">启动工单</a>
+                                <a href="#" class="easyui-linkbutton">暂停工单</a>
                                 <a href="#" class="easyui-linkbutton">结束工单</a>
-                                <a href="#" class="easyui-linkbutton">切换机台类型</a>
-                                <a href="#" class="easyui-linkbutton">录入发射量(无工单)</a>
-                                <a href="#" class="easyui-linkbutton">录入发射量(有工单)</a>
+                                <a href="#" class="easyui-linkbutton">切换批次</a>
+                                <!-- <a href="#" class="easyui-linkbutton">录入发射量(无工单)</a>
+                                <a href="#" class="easyui-linkbutton">录入发射量(有工单)</a> -->
                             </div>
-                            <div class="content-list"> 
+                            <div class="content-list">
                                 <ul>
                                     <li><span>工单号：</span><span>20190410001JX3000505</span></li>
                                     <li><span>牌号：</span><span>100MM加香醋纤滤棒(3000/一切四/24.05)</span></li>
@@ -205,79 +299,355 @@ table tr td{
                                 </ul>
                             </div>
                         </div>
-                    <!-- <div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
+                        <div title="20190410001JX3000506" style="padding:0px;display:none;"
+                            data-options="iconCls:'icon-reload',fit:true" class="content-area">
+                            <div class="btn-item">
+                                <a href="#" class="easyui-linkbutton">启动工单1</a>
+                                <a href="#" class="easyui-linkbutton">暂停工单1</a>
+                                <a href="#" class="easyui-linkbutton">结束工单</a>
+                                <a href="#" class="easyui-linkbutton">切换机台类型</a>
+                                <a href="#" class="easyui-linkbutton">录入发射量(无工单)</a>
+                                <a href="#" class="easyui-linkbutton">录入发射量(有工单)</a>
+                            </div>
+                            <div class="content-list">
+                                <ul>
+                                    <li><span>工单号：</span><span>20190410001JX3000505</span></li>
+                                    <li><span>牌号：</span><span>100MM加香醋纤滤棒(3000/一切四/24.05)</span></li>
+                                    <li><span>牌号编码：</span><span>BC06100033</span></li>
+                                    <li><span>计划开始时间：</span><span>2019年04月10日 00时00分</span></li>
+                                    <li><span>计划结束时间：</span><span>2019年04月11日 00时00分</span></li>
+                                    <li><span>实际开始时间：</span><span>2019年04月11日 00时00分</span></li>
+                                    <li><span>实际结束时间：</span><span>2019年04月11日 00时00分</span></li>
+                                    <li><span>实际产量(支)：</span><span>2226.4</span></li>
+                                    <li><span>计划产量(支)：</span><span>2226.4</span></li>
+                                    <li><span>状态：</span><span>运行</span>&nbsp;<span class="state"></span></li>
+                                    <li><span>生产类型：</span><span>正常</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- <div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
                         tab2
                     </div>
                     <div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="display:none;">
                         tab3
                     </div> -->
-                </div>
-              </div>
-        </div>
-        <div id="fast-enter">
-            <div  class="easyui-window" title="快捷录入区" style="width:50%;height:auto;padding:10px;" data-options="
-            iconCls:'icon-save',
-            inline:true,
-            shadow:true,
-            onResize:function(){
-                $(this).window({left:'713px', top:'0px'});
-            }">
-            <div id="fast-area"  class="easyui-tabs" style="width: 100%;height:auto" data-options="fit:true" >
-                    <div title="发射管道状态" style="padding:0px;display:none;" data-options="iconCls:'icon-reload',fit:true" class="content-area">
-                        <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;height: 300px"
-                            data-options="singleSelect:true,url:'datagrid_data1.json',method:'get'">
-                        <thead>
-                            <tr>
-                                <th data-options="field:'itemid',align:'center',width:100">管道号</th>
-                                <th data-options="field:'productid',align:'center',width:100">发射状态</th>
-                                <th data-options="field:'listprice',align:'center',width:80">接收状态</th>
-                            </tr>
-                        </thead>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                       <tr><td>0301</td><td></td><td></td></tr>
-                      </table>
                     </div>
-                    <div title="卷接机状态" style="padding:0px;display:none;" data-options="iconCls:'icon-reload',fit:false" class="content-area">
-                            <div class="btn-item"> 
-                                    卷接机状态
-                            </div>
-                        </div>
-                    <div title="交接班" style="padding:0px;display:none;" data-options="iconCls:'icon-reload',fit:false" class="content-area">
-                            <div class="btn-item"> 
-                                    交接班
-                            </div>
-                        </div>
-                    <div title="停机记录" style="padding:0px;display:none;" data-options="iconCls:'icon-reload',fit:false" class="content-area">
-                            <div class="btn-item"> 
-                                    停机记录
-                            </div>
-                        </div>
+                </div>
             </div>
+            <div id="fast-enter" style="width:50%">
+                <div class="easyui-panel" title="快捷录入区" style="width:100%;height:auto;padding:10px;"
+                    data-options="fit:true">
+                    <div class="description">
+                        <ul>
+                            <li>卷接机状态说明：</li>
+                            <li><label>排产</label>&nbsp;<span></span></li>
+                            <li><label>下达</label>&nbsp;<span></span></li>
+                            <li><label>运行</label>&nbsp;<span></span></li>
+                            <li><label>暂停</label>&nbsp;<span></span></li>
+                            <li><label>完成</label>&nbsp;<span></span></li>
+                        </ul>
+                    </div>
+                    <div class="enter-btn">
+                        <a href="#" class="easyui-linkbutton">录入</a>
+                    </div>
+                    <div class="easyui-tabs" style="width: 100%;height:auto" data-options="fit:true">
+                        <div title="发射管道状态" style="display:none;" data-options="iconCls:'icon-reload',fit:true"
+                            class="content-area">
+                            <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;"
+                                data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true">
+                                <thead>
+                                    <tr>
+                                        <th data-options="field:'itemid',align:'center',width:100">管道号</th>
+                                        <th data-options="field:'productid',align:'center',width:100">发射状态</th>
+                                        <th data-options="field:'listprice',align:'center',width:80">接收状态</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <div class="remark">
+                                <ul>
+                                    <li><label>正常</label>&nbsp;<span></span></li>
+                                    <li><label>异常</label>&nbsp;<span></span></li>
+                                    <li><label>信号异常</label>&nbsp;<span></span></li>
+                                    <li><label>无信号</label>&nbsp;<span></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div title="卷接机状态" style="display:none;" data-options="iconCls:'icon-reload',fit:false"
+                            class="content-area">
+                            <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;"
+                                data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true"
+                                nowrap="false">
+                                <thead>
+                                    <tr>
+                                        <th data-options="field:'itemid',align:'center',width:100">发射机</th>
+                                        <th data-options="field:'productid',align:'center',width:100">成品牌号</th>
+                                        <th data-options="field:'listprice',align:'center',width:80">卷接机状态</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div title="交接班" style="display:none;" data-options="iconCls:'icon-reload',fit:true"
+                            class="handleoversth">
+                            <div class="comboxsty">
+                                <select class="easyui-combobox" name="qty-info" label="质量信息:" labelPosition="left"
+                                    style="width:100%;">
+                                    <option value="0">正常</option>
+                                    <option value="1">不正常</option>
+                                </select>
+                            </div>
+                            <div class="comboxsty">
+                                <select class="easyui-combobox" name="handleover" label="交接班事宜:" labelPosition="left"
+                                    style="width:100%;">
+                                    <option value="0">正常</option>
+                                    <option value="1">不正常</option>
+                                </select>
+                            </div>
+                            <div class="comboxsty">
+                                <select class="easyui-combobox" name="equ-state" label="设备状况:" labelPosition="left"
+                                    style="width:100%;">
+                                    <option value="0">正常</option>
+                                    <option value="1">不正常</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div title="停机记录" style="display:none;" data-options="iconCls:'icon-reload',fit:true"
+                            class="content-area" id="stop-work">
+                            <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;"
+                                data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true"
+                                nowrap="false">
+                                <thead>
+                                    <tr>
+                                        <th data-options="field:'itemid',align:'center',width:100">停机时长【分钟】</th>
+                                        <th data-options="field:'productid',align:'center',width:100">停机类型</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>0301</td>
+                                    <td>11111111111111111111111111111111111111111111111111111111111111</td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <div>
+                                <div class="typesty">
+                                    <select class="easyui-combobox" name="type-info" label="类型:" labelPosition="left"
+                                        style="width:100%;">
+                                        <option value="0">例保工时</option>
+                                        <option value="1">例保工时1</option>
+                                    </select>
+                                </div>
+                                <div class="enter-time">
+                                    <input class="easyui-numberbox" name="inputHours" value=""
+                                        style="width:40%;"><label>小时</label>
+                                    <input class="easyui-numberbox" name="inputmin" value=""
+                                        style="width:40%;"><label>分钟</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="win" data-options="fit:false"></div>
+            <div id="pwd" data-options="fit:false"></div>
         </div>
-    </div>
+
 </body>
+
 </html>
 <script>
-$(function(){
-    //添加一个新的tab
-//     $('#tt').tabs('add',{
-//     title:'New Tab',
-//     content:'Tab Body',
-//     closable:true,
-//     tools:[{
-//         iconCls:'icon-mini-refresh',
-//         handler:function(){
-//             alert('refresh');
-//         }
-//     }]
-// });
-});
+    // window.onload = function () {
+    //     changeH();
+    // }
+    // //当浏览器窗口大小改变时，设置显示内容的高度
+    // window.onresize = function () {
+    //     changeH();
+    // }
+    // function changeH() {
+    //    // var r = $(window).css("width");
+    //    var r = $(window).width()/2;
+    //     var rr = $(window).height() / 2;
+    //     console.log(r);
+    //     console.log(rr);
+    //     $("#win").height(rr);//设置右边窗口的位置
+    //     $("#win").width(r);
+    // }
+    function exit(){
+
+    }
+    function reloadData(){
+        window.location.reload();
+    }
+    function p(s) {
+        return s < 10 ? '0' + s : s;
+    }
+    function gettime() {
+        var myDate = new Date();
+        var year = myDate.getFullYear();
+        var month = myDate.getMonth() + 1;
+        var date = myDate.getDate();
+        var h = myDate.getHours();       //获取当前小时数(0-23)
+        var m = myDate.getMinutes();     //获取当前分钟数(0-59)
+        var s = myDate.getSeconds();
+        var now = year + '-' + p(month) + "-" + p(date) + " " + p(h) + ':' + p(m) + ":" + p(s);
+        return now;
+    }
+    var h = $(window).height() / 2;//浏览器高度
+    var w = $(window).width() / 2;//宽度
+    function equipCheck() {
+        //alert('click me');
+        $('#win').window({
+            width: w,
+            height: h,
+            title: "机台自检",
+            modal: true,
+            inline: false
+        });
+    }
+    function changePwd() {
+        $('#pwd').window({
+            width: w,
+            height: h,
+            title: "密码修改",
+            modal: true,
+            inline: false
+        });
+    }
+    $(function () {
+        setInterval(() => {
+            $('.time').html(gettime());
+        }, 1000);
+        //  $("#equip-Operate").height(r);
+        //添加一个新的tab
+        //     $('#tt').tabs('add',{
+        //     title:'New Tab',
+        //     content:'Tab Body',
+        //     closable:true,
+        //     tools:[{
+        //         iconCls:'icon-mini-refresh',
+        //         handler:function(){
+        //             alert('refresh');
+        //         }
+        //     }]
+        // });
+    });
 </script>
