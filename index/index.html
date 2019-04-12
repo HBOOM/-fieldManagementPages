@@ -215,9 +215,17 @@
         justify-content: space-around;
         line-height: 36px;
     }
+
+    .dialogsty {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 9009;
+    }
 </style>
 
 <body>
+
     <div class="easyui-layout" style="height:auto;" data-options="fit:true">
         <div data-options="region:'north'"
             style="height:60px;overflow: hidden; background: linear-gradient(to top right, #07BEc5 0%, #00ADB3 25%, #01A3A5 100%)"
@@ -241,9 +249,8 @@
         <div data-options="region:'west',split:true" title="操作菜单栏" style="width:15%;">
             <div class="easyui-accordion" data-options="fit:true,border:false">
                 <div title="机台操作区" style="padding:10px;" data-options="selected:true">
-                    <div class="ul-equip-item">
-                        <p>喂丝机002</p>
-                        <p>喂丝机002</p>
+                    <div class="ul-equip-item" id="equlist">
+                        <p ctrl="000">喂丝机002</p>
                     </div>
                 </div>
                 <div title="信息查询区" style="padding:10px">
@@ -273,41 +280,16 @@
                 }-->
                 <div class="easyui-panel" title="机台操作区" style="width:100%;padding:10px;" data-options="fit:true">
                     <div id="work-area" class="easyui-tabs" style="width: 100%;height:inherit" data-options="fit:true">
-                        <div title="20190410001JX3000505" style="padding:0px;display:none;"
-                            data-options="iconCls:'icon-reload'" class="content-area">
+                        <div title="工单1" data-options="iconCls:'icon-reload'" class="content-area">
                             <div class="btn-item">
                                 <a href="#" class="easyui-linkbutton">启动工单</a>
                                 <a href="#" class="easyui-linkbutton">暂停工单</a>
                                 <a href="#" class="easyui-linkbutton">结束工单</a>
-                                <a href="#" class="easyui-linkbutton">切换批次</a>
-                                <!-- <a href="#" class="easyui-linkbutton">录入发射量(无工单)</a>
-                                <a href="#" class="easyui-linkbutton">录入发射量(有工单)</a> -->
-                            </div>
-                            <div class="content-list">
-                                <ul>
-                                    <li><span>工单号：</span><span>20190410001JX3000505</span></li>
-                                    <li><span>牌号：</span><span>100MM加香醋纤滤棒(3000/一切四/24.05)</span></li>
-                                    <li><span>牌号编码：</span><span>BC06100033</span></li>
-                                    <li><span>计划开始时间：</span><span>2019年04月10日 00时00分</span></li>
-                                    <li><span>计划结束时间：</span><span>2019年04月11日 00时00分</span></li>
-                                    <li><span>实际开始时间：</span><span>2019年04月11日 00时00分</span></li>
-                                    <li><span>实际结束时间：</span><span>2019年04月11日 00时00分</span></li>
-                                    <li><span>实际产量(支)：</span><span>2226.4</span></li>
-                                    <li><span>计划产量(支)：</span><span>2226.4</span></li>
-                                    <li><span>状态：</span><span>运行</span>&nbsp;<span class="state"></span></li>
-                                    <li><span>生产类型：</span><span>正常</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div title="20190410001JX3000506" style="padding:0px;display:none;"
-                            data-options="iconCls:'icon-reload',fit:true" class="content-area">
-                            <div class="btn-item">
-                                <a href="#" class="easyui-linkbutton">启动工单1</a>
-                                <a href="#" class="easyui-linkbutton">暂停工单1</a>
-                                <a href="#" class="easyui-linkbutton">结束工单</a>
                                 <a href="#" class="easyui-linkbutton">切换机台类型</a>
-                                <a href="#" class="easyui-linkbutton">录入发射量(无工单)</a>
-                                <a href="#" class="easyui-linkbutton">录入发射量(有工单)</a>
+                                <a href="#" class="easyui-linkbutton equtype1">录入发射量(无工单)</a>
+                                <a href="#" class="easyui-linkbutton equtype1">录入发射量(有工单)</a>
+                                <a href="#" class="easyui-linkbutton equtype2"> 领/退料</a>
+                                <a href="#" class="easyui-linkbutton equtype2">录入产量</a>
                             </div>
                             <div class="content-list">
                                 <ul>
@@ -325,6 +307,7 @@
                                 </ul>
                             </div>
                         </div>
+
                         <!-- <div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
                         tab2
                     </div>
@@ -567,39 +550,44 @@
 
                 </div>
             </div>
-            <div id="win" data-options="fit:false"></div>
-            <div id="pwd" data-options="fit:false"></div>
+            <div id="win" class="dialogsty" data-options="fit:false">
+                <div id="dd" class="easyui-dialog" data-options="resizable:true,modal:true">
+                    Dialog Content.
+                </div>
+            </div>
+            <div id="pwd" class="dialogsty" data-options="fit:false">
+                <div id="pwddialog" class="easyui-dialog" data-options="resizable:true,modal:true">
+                    Dialog Content.
+                </div>
+            </div>
         </div>
 
 </body>
 
 </html>
 <script>
-    // window.onload = function () {
-    //     changeH();
-    // }
-    // //当浏览器窗口大小改变时，设置显示内容的高度
-    // window.onresize = function () {
-    //     changeH();
-    // }
-    // function changeH() {
-    //    // var r = $(window).css("width");
-    //    var r = $(window).width()/2;
-    //     var rr = $(window).height() / 2;
-    //     console.log(r);
-    //     console.log(rr);
-    //     $("#win").height(rr);//设置右边窗口的位置
-    //     $("#win").width(r);
-    // }
-    function exit(){
+    var h = null;
+    var w = null;
+    window.onload = function () {
+        h = $(window).height() / 2;//浏览器高度
+        w = $(window).width() / 2;//宽度
+    }
+    //当浏览器窗口大小改变时，设置显示内容的高度
+    window.onresize = function () {
+        h = $(window).height() / 2;//浏览器高度
+        w = $(window).width() / 2;//宽度
+    }
+    function exit() {
 
     }
-    function reloadData(){
+    function reloadData() {
         window.location.reload();
     }
+
     function p(s) {
         return s < 10 ? '0' + s : s;
     }
+
     function gettime() {
         var myDate = new Date();
         var year = myDate.getFullYear();
@@ -611,31 +599,126 @@
         var now = year + '-' + p(month) + "-" + p(date) + " " + p(h) + ':' + p(m) + ":" + p(s);
         return now;
     }
-    var h = $(window).height() / 2;//浏览器高度
-    var w = $(window).width() / 2;//宽度
+
+    //机台自检窗口
     function equipCheck() {
-        //alert('click me');
-        $('#win').window({
+        $('#dd').dialog({
             width: w,
             height: h,
+            left: $(window).width() / 4,
+            top: $(window).height() / 4,
             title: "机台自检",
             modal: true,
             inline: false
         });
+        $('#dd').dialog('open');
     }
+    //修改密码窗口
     function changePwd() {
-        $('#pwd').window({
+        $('#pwddialog').window({
             width: w,
             height: h,
+            left: $(window).width() / 4,
+            top: $(window).height() / 4,
             title: "密码修改",
             modal: true,
             inline: false
+        });
+        $('#pwddialog').dialog('open');
+    }
+    //机台操作区按钮显示
+    var type = 2;
+    function isequtype() {
+        switch (type) {
+            case 1://喂丝机
+                $(".btn-item .equtype2").css('display', 'none');
+                break;
+            default:
+                $(".btn-item .equtype1").css('display', 'none');
+                break;
+        }
+    }
+    //卷接机json填充机台下拉列表
+    const equlistvar = [{ "Ctrl": 112, "Name": "卷接机001测试", "id": "001" }, { "Ctrl": 113, "Name": "卷接机002", "id": "002" }, { "Ctrl": 113, "Name": "卷接机003", "id": "003" }]
+    function getEquList() {
+        equlistvar.forEach((value) => {
+            $('#equlist').append("<p ctrl=" + value.Ctrl + ">" + value.Name + "</p>");
+        });
+    }
+    const workinfo = [
+        {
+            "WO": "20190410001JX3000508", "PARTNM": "100MM加香醋纤滤棒(3000/一切四/24.05)",
+            "PartNO": "BC06100033", "Planstime": "2019-04-12 11:25:07",
+            "Planetime": "2019-04-12 11:25:07", "actualstime": "2019-04-12 11:25:07",
+            "actualetime": "2019-04-12 11:25:07", "planqty": "222",
+            "actualqty": "312", "status": "1", "type": "1"
+        }, {
+            "WO": "20190410001JX3000509", "PARTNM": "100MM加香醋纤滤棒(3000/一切四/24.05)",
+            "PartNO": "BC06100033", "Planstime": "2019-04-12 11:25:07",
+            "Planetime": "2019-04-12 11:25:07", "actualstime": "2019-04-12 11:25:07",
+            "actualetime": "2019-04-12 11:25:07", "planqty": "222",
+            "actualqty": "312", "status": "1", "type": "1"
+        }];
+    function getCtrlInfo() {
+        $('#equlist p').click(function () {
+            alert($(this).attr("ctrl"));//获取ctrl
+            $('#work-area .content-list').empty();
+            if (workinfo.length > 1) {
+
+            }
+            workinfo.forEach((value, index) => {
+                console.log(index);
+                var html = " <div title='20190410001JX3000505' data-options='iconCls':'icon-reload' class='content-area'>";
+                html += " <div class='btn-item'>";
+                html += " <a href='#' class='easyui-linkbutton'>启动工单</a>";
+                html += "         <a href='#' class='easyui-linkbutton'>暂停工单</a>";
+                html += "        <a href='#' class='easyui-linkbutton'>结束工单</a>";
+                html += "        <a href='#' class='easyui-linkbutton'>切换机台类型</a>";
+                html += "          <a href='#' class='easyui-linkbutton equtype1'>录入发射量(无工单)</a>";
+                html += "         <a href='#' class='easyui-linkbutton equtype1'>录入发射量(有工单)</a>";
+                html += "        <a href='#' class='easyui-linkbutton equtype2'> 领/退料</a>";
+                html += "        <a href='#' class='easyui-linkbutton equtype2'>录入产量</a>";
+                html += "     </div>";
+                html += "     <div class='content-list'>";
+                html += "        <ul>";
+                html += "           <li><span>工单号：</span><span>" + value.WO + "</span></li>";
+                html += "           <li><span>牌号：</span><span>" + value.PARTNM + "</span></li>";
+                html += "           <li><span>牌号编码：</span>" + value.PartNO + "</span></li>";
+                html += "           <li><span>计划开始时间：</span>" + value.Planstime + "</span></li>";
+                html += "           <li><span>计划结束时间：</span>" + value.Planetime + "</span></li>";
+                html += "           <li><span>实际开始时间：</span>" + value.actualstime + "</span></li>";
+                html += "           <li><span>实际结束时间：</span>" + value.actualetime + "</span></li>";
+                html += "           <li><span>实际产量(支)：</span>" + value.planqty + "</span></li>";
+                html += "           <li><span>计划产量(支)：</span>" + value.actualqty + "</span></li>";
+                html += "           <li><span>状态：</span><span>运行</span>&nbsp;" + value.status + "</span></li>";
+                html += "           <li><span>生产类型：</span>" + value.type + "</span></li>";
+                html += "         </ul>";
+                html += "     </div>";
+                html += " </div>";
+               // html = null;
+                $('#work-area').tabs('add', {
+                    title: '工单2',
+                    content: html,
+                    closable: true,
+                    tools: [{
+                        iconCls: 'icon-reload',
+                        handler: function () {
+                            //alert('refresh');
+                        }
+                    }]
+                });
+            });
         });
     }
     $(function () {
         setInterval(() => {
             $('.time').html(gettime());
         }, 1000);
+        $('#dd').dialog('close');
+        $('#pwddialog').dialog('close');
+        getEquList();
+        isequtype();
+        getCtrlInfo();
         //  $("#equip-Operate").height(r);
         //添加一个新的tab
         //     $('#tt').tabs('add',{
@@ -650,4 +733,5 @@
         //     }]
         // });
     });
+
 </script>
