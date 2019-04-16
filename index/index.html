@@ -11,97 +11,111 @@
     <script type="text/javascript" src="../index/Script/jquery.easyui.min.js"></script>
 </head>
 <style>
-    .header {
-        display: -webkit-flex;
-        display: flex;
-        justify-content: space-between;
-        /* line-height: 60px; */
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
-    }
+
+.header {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    /* line-height: 60px; */
+    color: #fff;
+    font-size: 20px;
+}
 
     .header p {
         text-indent: 5px;
     }
 
-    .header .ul-item {
+    .header .ul-item, .header .left-list {
         display: -webkit-flex;
         display: flex;
         justify-content: flex-end;
         margin-right: 20px;
     }
 
-    .header .ul-item li {
-        list-style-type: none;
-        padding: 0 5px;
+        .header .ul-item li, .header .left-list li {
+            list-style-type: none;
+            padding: 0 5px;
+        }
 
-    }
+        .header .ul-item img {
+            border-radius: 2px;
+        }
 
-    .header .ul-item img {
-        border-radius: 2px;
-    }
+#work-area .tabs-header .tabs-wrap ul,#work-area .tabs-header .tabs-wrap ul li a {
+    height: 52px !important;
+    line-height: 52px;
+}
 
-    .panel-header {
-        height: 60px;
-        text-align: center
-    }
+#work-area .tabs-header .tabs-wrap ul li{
+    text-align: justify;
+    text-justify: newspaper;
+    word-break: break-all;
+}
+
+.panel-header {
+    height: 60px;
+    text-align: center;
+}
 
     .panel-header .panel-title {
         line-height: 45px;
     }
 
-    .panel .layout-panel .layout-panel-center .panel-htop {
-        left: 50px;
-    }
+.panel .layout-panel .layout-panel-center .panel-htop {
+    left: 50px;
+}
 
-    .ul-equip-item p {
-        /*list-style: none;*/
-        border-bottom: 1px solid #00ADB3;
-        text-align: center;
-        word-wrap: break-word;
-        /*自动换行*/
-        height: 45px;
-        line-height: 45px;
-        cursor: pointer;
-    }
+.ul-equip-item p {
+    /*list-style: none;*/
+    border-bottom: 1px solid #00ADB3;
+    text-align: center;
+    word-wrap: break-word;
+    /*自动换行*/
+    height: 45px;
+    line-height: 45px;
+    cursor: pointer;
+}
 
-    .border-sty::before {
-        border-color: #00ADB3;
-    }
+.easyui-linkbutton {
+    background: #01A3A5;
+}
 
-    .border-sty::after {
-        border-color: #00ADB3;
-    }
+.border-sty::before {
+    border-color: #00ADB3;
+}
 
-    table tr td {
-        word-wrap: break-word;
-        word-break: break-all;
-    }
+.border-sty::after {
+    border-color: #00ADB3;
+}
 
-    #main-center {
-        position: relative;
-        display: flex;
-        justify-content: flex-start;
-    }
+table tr td {
+    word-wrap: break-word;
+    word-break: break-all;
+}
 
-    .content-area,
-    .btn-item,
-    .content-list {
-        display: flex;
-        display: -webkit-flex;
-    }
+#main-center {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
 
-    .content-area {
-        justify-content: space-around;
-    }
+.content-area,
+.btn-item,
+.content-list {
+    display: flex;
+    display: -webkit-flex;
+}
 
-    .btn-item {
-        margin-top: 5px;
-        width: 20%;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
+.content-area {
+    justify-content: space-around;
+}
+
+.btn-item {
+    margin-top: 5px;
+    width: 20%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
 
     .btn-item a {
         order: 2;
@@ -112,6 +126,10 @@
         padding: 15px;
     }
 
+    .btn-item .easyui-linkbutton {
+        border-radius: 5px;
+    }
+
     .btn-item .easyui-linkbutton,
     #fast-enter .enter-btn .easyui-linkbutton {
         display: flex;
@@ -120,39 +138,45 @@
         align-items: center;
     }
 
-    .content-list {
-        justify-content: flex-start;
-        font-size: 16px;
-    }
+.content-list {
+    justify-content: flex-start;
+    font-size: 16px;
+}
 
     .content-list li {
         list-style-type: none;
         padding: 10px;
     }
 
-    .state {
-        display: inline-block;
-        border: 1px solid green;
-        background: green;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-    }
+.state {
+    display: inline-block;
+    border: 1px solid green;
+    background: green;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+#main-center{
+    position:relative;
+}
+#main-center .panel-tool {
+    display: none;
+}
 
-    #main-center .panel-tool {
-        display: none;
-    }
+#fast-enter .content-area .panel-header {
+    height: 0;
+}
 
-    #fast-enter .content-area .panel-header {
-        height: 0;
-    }
-
-    #fast-enter .content-area {
-        display: flex;
-        display: -webkit-flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+#fast-enter .tabs-header .tabs-wrap ul,#fast-enter .tabs-header .tabs-wrap ul li a {
+    height: 36px !important;
+    line-height: 36px;
+}
+#fast-enter .content-area {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
     #fast-enter .content-area .remark li,
     #fast-enter .description li {
@@ -160,7 +184,7 @@
     }
 
     #fast-enter .content-area .remark ul,
-    #fast-enter .description ul {
+    #fast-enter .description ul, #fast-enter .enter-btn {
         display: flex;
         display: -webkit-flex;
         flex-direction: row;
@@ -176,22 +200,24 @@
         height: 10px;
     }
 
-    #fast-enter .enter-btn .easyui-linkbutton {
-        height: 60px;
-        margin-bottom: 2px;
-        background: #E8F1FF;
-    }
+#fast-enter .enter-btn .easyui-linkbutton {
+    height: 60px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    width: 50%;
+    border-radius: 5px;
+}
 
     #fast-enter .enter-btn .easyui-linkbutton .l-btn-text {
         font-size: 20px;
         letter-spacing: 5px;
     }
 
-    #fast-enter .handleoversth {
-        display: flex;
-        display: -webkit-flex;
-        flex-direction: column;
-    }
+#fast-enter .handleoversth {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+}
 
     #fast-enter .handleoversth .comboxsty,
     #fast-enter .typesty,
@@ -199,49 +225,144 @@
         padding: 20px 15px;
     }
 
-    #fast-enter .handleoversth .comboxsty .textbox-label {
-        overflow: visible;
-    }
+        #fast-enter .handleoversth .comboxsty .textbox-label {
+            overflow: visible;
+        }
 
-    #fast-enter .handleoversth .comboxsty input,
-    #fast-enter .typesty input,
-    #fast-enter .enter-time input {
-        height: 36px;
-    }
+        #fast-enter .handleoversth .comboxsty input,
+        #fast-enter .typesty input,
+        #fast-enter .enter-time input {
+            height: 36px;
+        }
 
-    #fast-enter .enter-time {
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-around;
-        line-height: 36px;
-    }
+#fast-enter .enter-time {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    line-height: 36px;
+}
 
-    .dialogsty {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 9009;
-    }
+.dialogsty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 9009;
+    display: none;
+}
+/* #fast-enter .easyui-panel .panel-body .panel-noscroll {
+        overflow-x:hidden;
+    } */
+#fast-enter .panel .datagrid .panel-htop {
+    overflow-y: auto;
+}
+#main-center{
+    position:relative;
+}
+#mouselocal{
+ position: absolute;
+    z-index: 9012;
+    top:30%;
+    left:35%;
+    right:0;
+    bottom:0;
+    animation:myfirst 4s  infinite;
+	-webkit-animation:myfirst 4s  infinite; /* Safari and Chrome */
+}
+#mouselocalr{
+ position: absolute;
+    z-index: 9012;
+    top:30%;
+     right:15%;
+     animation:mysecond 4s  infinite;
+	-webkit-animation:mysecond 4s  infinite; /* Safari and Chrome */
+}
+#instruct-area{
+    display:-webkit-flex;
+    display:flex;
+    justify-content:space-around;
+}
+#wordesc{
+    position: absolute;
+    z-index: 9012;
+    top:144px;
+    left:284px;
+    right:0;
+    bottom:0;
+}
+#wordescr{
+    position: absolute;
+    z-index: 9028;
+    top:254px;
+    left:304px;
+    bottom:0;
+}
+#wordesc p{
+    width:30%;
+}
+#wordescr p{
+    width:auto;
+    height:30px;
+    line-height:30px;
+}
+#wordesc p,#wordescr p{
+    border:1px solid darkgrey ;
+    font-size:16px;
+    color:red;
+    font-weight:bold;
+    border-radius:2px;
+    box-shadow: darkgrey 10px 10px 30px 5px
+}
+@keyframes myfirst
+{
+   from{top:30%;
+    left:0%;}
+   to{
+       top:35%;
+       left:20%;
+   }
+}
+@keyframes mysecond
+{
+   from{top:30%;
+    right:10%;}
+   to{
+       top:50%;
+       right:35%;
+   }
+}
+
+
+
 </style>
 
 <body>
-
     <div class="easyui-layout" style="height:auto;" data-options="fit:true">
         <div data-options="region:'north'"
-            style="height:60px;overflow: hidden; background: linear-gradient(to top right, #07BEc5 0%, #00ADB3 25%, #01A3A5 100%)"
-            class="header">
-            <p><label>时间：</labe><label class="time"></label></p>
+             style="height:60px;overflow: hidden; background: linear-gradient(to top right, #07BEc5 0%, #00ADB3 25%, #01A3A5 100%)"
+             class="header">
+            <ul class="left-list">
+                <li><label>时间：</labe><label class="time"></label></li>
+                <span>|</span>
+                <li onclick="exit()"><label>退出登录</label></li>
+                <span>|</span>
+                <li onclick="reloadData()"><label>刷新</label></li>
+    
+            </ul>
             <ul class="ul-item">
-                <li onclick="exit()"><label>退出登录</label></li><span>|</span>
-                <li onclick="reloadData()"><label>刷新</label></li><span>|</span>
-                <li><img src="../user.png">&nbsp;<label>developer1</label></li><span>|</span>
-                <li><label>班组：</label><label>甲班</label></li><span>|</span>
+                <li><img src="../user.png">&nbsp;<label>developer1</label></li>
+                <span>|</span>
+                <li><label>班组：</label><label>甲班</label></li>
+                <span>|</span>
                 <li><label>班次：</label><label>白班</label></li>
             </ul>
         </div>
         <div data-options="region:'south',split:true" style="height:60px;line-height: 45px;font-weight: bold">
             <label>本机ip：</label><label>10.161.117.250</label>
             <label>客户端版本：</label><label>0.1.0.112</label>
+            &nbsp;&nbsp;&nbsp;
+            <label>夜班 00:00~7：30</label>
+            <label>白班 7:30~15：35</label>
+            <label>中班 15:35~00：00</label>
         </div>
         <!-- <div data-options="region:'east',split:true" title="East" style="width:180px;">
             <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,dnd:true"></ul>
@@ -259,16 +380,9 @@
                         <p onclick="changePwd()" class="PwdCheck">密码修改</p>
                     </div>
                 </div>
-                <div title="班次时间查询区" style="padding:10px">
-                    <div class="ul-equip-item">
-                        <p>夜班 00:00~7：30</p>
-                        <p>白班 7:30~15：35</p>
-                        <p>中班 15:35~00：00</p>
-                    </div>
-                </div>
             </div>
         </div>
-        <div data-options="region:'center',title:'工单信息区域'" id="main-center">
+        <div data-options="region:'center'" id="main-center">
             <!--minWidth:'00',
                     minHeight:'600'-->
             <div id="equip-Operate" style="width:50%">
@@ -280,7 +394,7 @@
                 }-->
                 <div class="easyui-panel" title="机台操作区" style="width:100%;padding:10px;" data-options="fit:true">
                     <div id="work-area" class="easyui-tabs" style="width: 100%;height:inherit" data-options="fit:true">
-                        <div title="工单1" data-options="iconCls:'icon-reload'" class="content-area">
+                        <div title="120190410001JX3000505" data-options="iconCls:'icon-reload'" class="content-area" id="worktest"  style="word-wrap: break-word" >
                             <div class="btn-item">
                                 <a href="#" class="easyui-linkbutton">启动工单</a>
                                 <a href="#" class="easyui-linkbutton">暂停工单</a>
@@ -307,19 +421,18 @@
                                 </ul>
                             </div>
                         </div>
-
+    
                         <!-- <div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
-                        tab2
-                    </div>
-                    <div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="display:none;">
-                        tab3
-                    </div> -->
+                            tab2
+                        </div>
+                        <div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="display:none;">
+                            tab3
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div id="fast-enter" style="width:50%">
-                <div class="easyui-panel" title="快捷录入区" style="width:100%;height:auto;padding:10px;"
-                    data-options="fit:true">
+                <div class="easyui-panel" title="快捷录入区" style="width:100%;height:auto;overflow-x:hidden;overflow-y:auto;" data-options="fit:true">
                     <div class="description">
                         <ul>
                             <li>卷接机状态说明：</li>
@@ -332,12 +445,13 @@
                     </div>
                     <div class="enter-btn">
                         <a href="#" class="easyui-linkbutton">录入</a>
+                        <a href="#" class="easyui-linkbutton">删除</a>
                     </div>
-                    <div class="easyui-tabs" style="width: 100%;height:auto" data-options="fit:true">
-                        <div title="发射管道状态" style="display:none;" data-options="iconCls:'icon-reload',fit:true"
-                            class="content-area">
+                    <div class="easyui-tabs" style="width:100%;height:auto" data-options="fit:true">
+                        <div title="发射管道状态" style="display:none" data-options="iconCls:'icon-reload',fit:true"
+                             class="content-area">
                             <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;"
-                                data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true">
+                                   data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true">
                                 <thead>
                                     <tr>
                                         <th data-options="field:'itemid',align:'center',width:100">管道号</th>
@@ -406,10 +520,10 @@
                             </div>
                         </div>
                         <div title="卷接机状态" style="display:none;" data-options="iconCls:'icon-reload',fit:false"
-                            class="content-area">
-                            <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;"
-                                data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true"
-                                nowrap="false">
+                             class="content-area">
+                            <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;height:250px"
+                                   data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true"
+                                   nowrap="false">
                                 <thead>
                                     <tr>
                                         <th data-options="field:'itemid',align:'center',width:100">发射机</th>
@@ -470,35 +584,38 @@
                             </table>
                         </div>
                         <div title="交接班" style="display:none;" data-options="iconCls:'icon-reload',fit:true"
-                            class="handleoversth">
+                             class="handleoversth">
                             <div class="comboxsty">
+                                <label>质量信息:</label>
                                 <select class="easyui-combobox" name="qty-info" label="质量信息:" labelPosition="left"
-                                    style="width:100%;">
+                                        style="width:100%;">
                                     <option value="0">正常</option>
                                     <option value="1">不正常</option>
                                 </select>
                             </div>
                             <div class="comboxsty">
+                                <label>交接班事宜:</label>
                                 <select class="easyui-combobox" name="handleover" label="交接班事宜:" labelPosition="left"
-                                    style="width:100%;">
+                                        style="width:100%;">
                                     <option value="0">正常</option>
                                     <option value="1">不正常</option>
                                 </select>
                             </div>
                             <div class="comboxsty">
+                                <label>设备状况:</label>
                                 <select class="easyui-combobox" name="equ-state" label="设备状况:" labelPosition="left"
-                                    style="width:100%;">
+                                        style="width:100%;">
                                     <option value="0">正常</option>
                                     <option value="1">不正常</option>
                                 </select>
                             </div>
-
+    
                         </div>
                         <div title="停机记录" style="display:none;" data-options="iconCls:'icon-reload',fit:true"
-                            class="content-area" id="stop-work">
-                            <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%;"
-                                data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true"
-                                nowrap="false">
+                             class="content-area" id="stop-work">
+                            <table class="easyui-datagrid" id="stop-record" title="Basic DataGrid" style="width:100%;height:300px"
+                                   data-options="singleSelect:true,url:'datagrid_data1.json',method:'get',fitColumns:true"
+                                   nowrap="false">
                                 <thead>
                                     <tr>
                                         <th data-options="field:'itemid',align:'center',width:100">停机时长【分钟】</th>
@@ -529,209 +646,326 @@
                                     <td>0301</td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0301</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>0302</td>
+                                    <td></td>
+                                </tr>
                             </table>
                             <div>
                                 <div class="typesty">
+                                    <label>类型：</label>
                                     <select class="easyui-combobox" name="type-info" label="类型:" labelPosition="left"
-                                        style="width:100%;">
+                                            style="width:100%;">
                                         <option value="0">例保工时</option>
                                         <option value="1">例保工时1</option>
                                     </select>
                                 </div>
                                 <div class="enter-time">
                                     <input class="easyui-numberbox" name="inputHours" value=""
-                                        style="width:40%;"><label>小时</label>
+                                           style="width:40%;"><label>小时</label>
                                     <input class="easyui-numberbox" name="inputmin" value=""
-                                        style="width:40%;"><label>分钟</label>
+                                           style="width:40%;"><label>分钟</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+    
                 </div>
             </div>
             <div id="win" class="dialogsty" data-options="fit:false">
                 <div id="dd" class="easyui-dialog" data-options="resizable:true,modal:true">
-                    Dialog Content.
+                    1Dialog Content.
+                    1111111111111111
                 </div>
             </div>
             <div id="pwd" class="dialogsty" data-options="fit:false">
                 <div id="pwddialog" class="easyui-dialog" data-options="resizable:true,modal:true">
-                    Dialog Content.
+                    <iframe name="myiframe" id="myrame" src="changePwd.html" frameborder="0" align="left" style="width:100%"scrolling="no">
+                        <p>你的浏览器不支持iframe标签</p>
+                    </iframe>
                 </div>
             </div>
-        </div>
-
+            <!-- <div id="instruct" data-options="fit:false">
+                <div id="instruct-area" class="easyui-dialog" data-options="resizable:true,modal:true" >
+                    <div id="mouselocal" >
+                        <img src="~/Areas/MESField/img/鼠标.png"/>
+                    </div>
+                    <div id="wordesc">
+                        <p>机台选择区,选择菜单中对应的机台</p>
+                    </div>
+                    <img src="~/Areas/MESField/img/机台操作区.png" class="first-img"/>
+                    <div id="mouselocalr">
+                        <img src="~/Areas/MESField/img/鼠标.png" />
+                    </div>
+                    <div id="wordescr">
+                        <p>信息查询区：机台自检、密码修改</p>
+                    </div>
+                        <img src="~/Areas/MESField/img/信息查询区.png" />
+                </div>
+            </div>
+        </div> -->
 </body>
 
 </html>
 <script>
-    var h = null;
-    var w = null;
-    window.onload = function () {
-        h = $(window).height() / 2;//浏览器高度
-        w = $(window).width() / 2;//宽度
+ 
+var h = null;
+var w = null;
+window.onload = function () {
+    h = $(window).height() / 2;//浏览器高度
+    w = $(window).width() / 2;//宽度
+}
+//当浏览器窗口大小改变时，设置显示内容的高度
+window.onresize = function () {
+    h = $(window).height() / 2;//浏览器高度
+    w = $(window).width() / 2;//宽度
+}
+function changeFrameHeight(){
+        // var ifm= document.getElementById("myrame");
+        // ifm.height=document.documentElement.clientHeight-56;
+        var pwdw=$('#pwddialog').height();
+        $('#myrame').width($('#pwddialog').width());
+        $('#myrame').height($('#pwddialog').height());
     }
-    //当浏览器窗口大小改变时，设置显示内容的高度
-    window.onresize = function () {
-        h = $(window).height() / 2;//浏览器高度
-        w = $(window).width() / 2;//宽度
-    }
-    function exit() {
+function nav() {
+    $('#instruct-area').dialog({
+        width: $(window).width()/2,
+        height: $(window).height()/2,
+        left: $(window).width() /4 ,
+        top: $(window).height() / 4,
+        title: "导航",
+        modal: true,
+        inline: false
+    });
+    console.log($(window).height());
+    console.log(h);
+    $('#instruct-area').dialog('open');
+}
+function exit() {
 
-    }
-    function reloadData() {
-        window.location.reload();
-    }
+}
+function reloadData() {
+    window.location.reload();
+}
 
-    function p(s) {
-        return s < 10 ? '0' + s : s;
-    }
+function p(s) {
+    return s < 10 ? '0' + s : s;
+}
 
-    function gettime() {
-        var myDate = new Date();
-        var year = myDate.getFullYear();
-        var month = myDate.getMonth() + 1;
-        var date = myDate.getDate();
-        var h = myDate.getHours();       //获取当前小时数(0-23)
-        var m = myDate.getMinutes();     //获取当前分钟数(0-59)
-        var s = myDate.getSeconds();
-        var now = year + '-' + p(month) + "-" + p(date) + " " + p(h) + ':' + p(m) + ":" + p(s);
-        return now;
-    }
+function gettime() {
+    var myDate = new Date();
+    var year = myDate.getFullYear();
+    var month = myDate.getMonth() + 1;
+    var date = myDate.getDate();
+    var h = myDate.getHours();       //获取当前小时数(0-23)
+    var m = myDate.getMinutes();     //获取当前分钟数(0-59)
+    var s = myDate.getSeconds();
+    var now = year + '-' + p(month) + "-" + p(date) + " " + p(h) + ':' + p(m) + ":" + p(s);
+    return now;
+}
 
-    //机台自检窗口
-    function equipCheck() {
-        $('#dd').dialog({
-            width: w,
-            height: h,
-            left: $(window).width() / 4,
-            top: $(window).height() / 4,
-            title: "机台自检",
-            modal: true,
-            inline: false
+//机台自检窗口
+function equipCheck() {
+    $('#dd').dialog({
+        width: w,
+        height: h,
+        left: $(window).width() / 4,
+        top: $(window).height() / 4,
+        title: "机台自检",
+        modal: true,
+        inline: false
+    });
+    $('#dd').dialog('open');
+}
+//修改密码窗口
+function changePwd() {
+    $('#pwddialog').window({
+        width: w,
+        height: h,
+        left: $(window).width() / 4,
+        top: $(window).height() / 4,
+        title: "密码修改",
+        modal: true,
+        inline: false
+    });
+    $('#pwddialog').dialog('open');
+    changeFrameHeight();
+}
+//机台操作区按钮显示
+var type = 2;
+function isequtype() {
+    switch (type) {
+        case 1://喂丝机
+            $(".btn-item .equtype2").css('display', 'none');
+            break;
+        default:
+            $(".btn-item .equtype1").css('display', 'none');
+            break;
+    }
+}
+
+//kua快捷录入按钮显示
+var FSctrl=0;
+function FastEnterShow() {
+    if(FSctrl != 1){
+        $("#fast-enter .easyui-tabs").tabs('close', '发射管道状态');
+        $("#fast-enter .easyui-tabs").tabs('close', '卷接机状态');
+    }
+}
+//卷接机json填充机台下拉列表
+const equlistvar = [{ "Ctrl": 112, "Name": "卷接机001测试", "id": "001" }, { "Ctrl": 113, "Name": "卷接机002", "id": "002" }, { "Ctrl": 113, "Name": "卷接机003", "id": "003" }]
+function getEquList() {
+    equlistvar.forEach((value) => {
+        $('#equlist').append("<p ctrl=" + value.Ctrl + ">" + value.Name + "</p>");
+    });
+}
+const workinfo = [
+    {
+        "WO": "20190410001JX3000508", "PARTNM": "100MM加香醋纤滤棒(3000/一切四/24.05)",
+        "PartNO": "BC06100033", "Planstime": "2019-04-12 11:25:07",
+        "Planetime": "2019-04-12 11:25:07", "actualstime": "2019-04-12 11:25:07",
+        "actualetime": "2019-04-12 11:25:07", "planqty": "222",
+        "actualqty": "312", "status": "1", "type": "1"
+    }, {
+        "WO": "20190410001JX3000509", "PARTNM": "100MM加香醋纤滤棒(3000/一切四/24.05)",
+        "PartNO": "BC06100033", "Planstime": "2019-04-12 11:25:07",
+        "Planetime": "2019-04-12 11:25:07", "actualstime": "2019-04-12 11:25:07",
+        "actualetime": "2019-04-12 11:25:07", "planqty": "222",
+        "actualqty": "312", "status": "1", "type": "1"
+    }];
+function getCtrlInfo() {
+    $('#equlist p').click(function () {
+        // alert($(this).attr("ctrl"));//获取ctrl
+        // $('#work-area .content-area').empty();
+        // $('#work-area').tabs('close','工单测试');
+        $("#work-area .tabs li").each(function(index, obj) {
+            //获取所有可关闭的选项卡
+            alert(index);
+            var tab = obj.innerText;
+            $(".easyui-tabs").tabs('close', tab);
         });
-        $('#dd').dialog('open');
-    }
-    //修改密码窗口
-    function changePwd() {
-        $('#pwddialog').window({
-            width: w,
-            height: h,
-            left: $(window).width() / 4,
-            top: $(window).height() / 4,
-            title: "密码修改",
-            modal: true,
-            inline: false
-        });
-        $('#pwddialog').dialog('open');
-    }
-    //机台操作区按钮显示
-    var type = 2;
-    function isequtype() {
-        switch (type) {
-            case 1://喂丝机
-                $(".btn-item .equtype2").css('display', 'none');
-                break;
-            default:
-                $(".btn-item .equtype1").css('display', 'none');
-                break;
-        }
-    }
-    //卷接机json填充机台下拉列表
-    const equlistvar = [{ "Ctrl": 112, "Name": "卷接机001测试", "id": "001" }, { "Ctrl": 113, "Name": "卷接机002", "id": "002" }, { "Ctrl": 113, "Name": "卷接机003", "id": "003" }]
-    function getEquList() {
-        equlistvar.forEach((value) => {
-            $('#equlist').append("<p ctrl=" + value.Ctrl + ">" + value.Name + "</p>");
-        });
-    }
-    const workinfo = [
-        {
-            "WO": "20190410001JX3000508", "PARTNM": "100MM加香醋纤滤棒(3000/一切四/24.05)",
-            "PartNO": "BC06100033", "Planstime": "2019-04-12 11:25:07",
-            "Planetime": "2019-04-12 11:25:07", "actualstime": "2019-04-12 11:25:07",
-            "actualetime": "2019-04-12 11:25:07", "planqty": "222",
-            "actualqty": "312", "status": "1", "type": "1"
-        }, {
-            "WO": "20190410001JX3000509", "PARTNM": "100MM加香醋纤滤棒(3000/一切四/24.05)",
-            "PartNO": "BC06100033", "Planstime": "2019-04-12 11:25:07",
-            "Planetime": "2019-04-12 11:25:07", "actualstime": "2019-04-12 11:25:07",
-            "actualetime": "2019-04-12 11:25:07", "planqty": "222",
-            "actualqty": "312", "status": "1", "type": "1"
-        }];
-    function getCtrlInfo() {
-        $('#equlist p').click(function () {
-            alert($(this).attr("ctrl"));//获取ctrl
-            $('#work-area .content-list').empty();
-            if (workinfo.length > 1) {
+        workinfo.forEach((value, index) => {
+            console.log(index);
+            var html = " <div title='20190410001JX3000505' data-options='iconCls':'icon-reload',justified:'true' class='content-area'>";
+            html += " <div class='btn-item'>";
+            html += " <a href='#' class='easyui-linkbutton'>启动工单</a>";
+            html += "         <a href='#' class='easyui-linkbutton'>暂停工单</a>";
+            html += "        <a href='#' class='easyui-linkbutton'>结束工单</a>";
+            html += "        <a href='#' class='easyui-linkbutton'>切换机台类型</a>";
+            html += "          <a href='#' class='easyui-linkbutton equtype1'>录入发射量(无工单)</a>";
+            html += "         <a href='#' class='easyui-linkbutton equtype1'>录入发射量(有工单)</a>";
+            html += "        <a href='#' class='easyui-linkbutton equtype2'> 领/退料</a>";
+            html += "        <a href='#' class='easyui-linkbutton equtype2'>录入产量</a>";
+            html += "     </div>";
+            html += "     <div class='content-list'>";
+            html += "        <ul>";
+            html += "           <li><span>工单号：</span><span>" + value.WO + "</span></li>";
+            html += "           <li><span>牌号：</span><span>" + value.PARTNM + "</span></li>";
+            html += "           <li><span>牌号编码：</span>" + value.PartNO + "</span></li>";
+            html += "           <li><span>计划开始时间：</span>" + value.Planstime + "</span></li>";
+            html += "           <li><span>计划结束时间：</span>" + value.Planetime + "</span></li>";
+            html += "           <li><span>实际开始时间：</span>" + value.actualstime + "</span></li>";
+            html += "           <li><span>实际结束时间：</span>" + value.actualetime + "</span></li>";
+            html += "           <li><span>实际产量(支)：</span>" + value.planqty + "</span></li>";
+            html += "           <li><span>计划产量(支)：</span>" + value.actualqty + "</span></li>";
+            html += "           <li><span>状态：</span><span>运行</span>&nbsp;" + value.status + "</span></li>";
+            html += "           <li><span>生产类型：</span>" + value.type + "</span></li>";
+            html += "         </ul>";
+            html += "     </div>";
+            html += " </div>";
+            // html = null;
+            //     var content="<iframe src='workpanel.html' frameborder='0' scrolling='auto' style='width:100%;height:100%'>"
+            // $('#work-area').tabs('add',{
 
-            }
-            workinfo.forEach((value, index) => {
-                console.log(index);
-                var html = " <div title='20190410001JX3000505' data-options='iconCls':'icon-reload' class='content-area'>";
-                html += " <div class='btn-item'>";
-                html += " <a href='#' class='easyui-linkbutton'>启动工单</a>";
-                html += "         <a href='#' class='easyui-linkbutton'>暂停工单</a>";
-                html += "        <a href='#' class='easyui-linkbutton'>结束工单</a>";
-                html += "        <a href='#' class='easyui-linkbutton'>切换机台类型</a>";
-                html += "          <a href='#' class='easyui-linkbutton equtype1'>录入发射量(无工单)</a>";
-                html += "         <a href='#' class='easyui-linkbutton equtype1'>录入发射量(有工单)</a>";
-                html += "        <a href='#' class='easyui-linkbutton equtype2'> 领/退料</a>";
-                html += "        <a href='#' class='easyui-linkbutton equtype2'>录入产量</a>";
-                html += "     </div>";
-                html += "     <div class='content-list'>";
-                html += "        <ul>";
-                html += "           <li><span>工单号：</span><span>" + value.WO + "</span></li>";
-                html += "           <li><span>牌号：</span><span>" + value.PARTNM + "</span></li>";
-                html += "           <li><span>牌号编码：</span>" + value.PartNO + "</span></li>";
-                html += "           <li><span>计划开始时间：</span>" + value.Planstime + "</span></li>";
-                html += "           <li><span>计划结束时间：</span>" + value.Planetime + "</span></li>";
-                html += "           <li><span>实际开始时间：</span>" + value.actualstime + "</span></li>";
-                html += "           <li><span>实际结束时间：</span>" + value.actualetime + "</span></li>";
-                html += "           <li><span>实际产量(支)：</span>" + value.planqty + "</span></li>";
-                html += "           <li><span>计划产量(支)：</span>" + value.actualqty + "</span></li>";
-                html += "           <li><span>状态：</span><span>运行</span>&nbsp;" + value.status + "</span></li>";
-                html += "           <li><span>生产类型：</span>" + value.type + "</span></li>";
-                html += "         </ul>";
-                html += "     </div>";
-                html += " </div>";
-               // html = null;
-                $('#work-area').tabs('add', {
-                    title: '工单2',
-                    content: html,
-                    closable: true,
-                    tools: [{
-                        iconCls: 'icon-reload',
-                        handler: function () {
-                            //alert('refresh');
-                        }
-                    }]
-                });
+            //     title:'',
+            //     content:content,
+            //     closable:true
+
+            // });
+            // $('#work-area').tabs('close','工单测试');
+            $('#work-area').tabs('add', {
+                title: value.WO,
+                content: html,
+                justified:true,
+                closable: false,
+                tools: [{
+                    iconCls: 'icon-reload',
+                    handler: function () {
+                        //alert('refresh');
+                    }
+                }]
             });
         });
-    }
-    $(function () {
-        setInterval(() => {
-            $('.time').html(gettime());
-        }, 1000);
-        $('#dd').dialog('close');
-        $('#pwddialog').dialog('close');
-        getEquList();
         isequtype();
-        getCtrlInfo();
-        //  $("#equip-Operate").height(r);
-        //添加一个新的tab
-        //     $('#tt').tabs('add',{
-        //     title:'New Tab',
-        //     content:'Tab Body',
-        //     closable:true,
-        //     tools:[{
-        //         iconCls:'icon-mini-refresh',
-        //         handler:function(){
-        //             alert('refresh');
-        //         }
-        //     }]
-        // });
     });
+}
+function getimg() {
+    var imgw = $('#instruct-area .first-img').width();
+    var imgh = $('#instruct-area .first-img').height();
+    console.log(imgw);
+    console.log(imgh);
+}
+
+$(function () {
+    setInterval(() => {
+        $('.time').html(gettime());
+    }, 1000);
+    $('#dd').dialog('close');
+    $('#pwddialog').dialog('close');
+
+    getEquList();
+    isequtype();
+    FastEnterShow();
+    getCtrlInfo();
+    getimg();
+    changeFrameHeight();
+    //  $("#equip-Operate").height(r);
+    //添加一个新的tab
+    //     $('#tt').tabs('add',{
+    //     title:'New Tab',
+    //     content:'Tab Body',
+    //     closable:true,
+    //     tools:[{
+    //         iconCls:'icon-mini-refresh',
+    //         handler:function(){
+    //             alert('refresh');
+    //         }
+    //     }]
+    // });
+    nav();
+});
+
 
 </script>
